@@ -1,0 +1,33 @@
+server {
+  server_name {{ domain }};
+  root /var/www/{{ domain }};
+
+  location / {
+    try_files $uri $uri/ =404;
+  }
+
+  location ~* \.(css)$ {
+    expires max;
+
+    add_header Pragma public;
+    add_header Cache-Control "public";
+  }
+
+  listen [::]:443 ssl ipv6only=on;
+  listen 443 ssl;
+
+  ssl_certificate /etc/letsencrypt/live/{{ domain }}/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/{{ domain }}/privkey.pem;
+  include /etc/letsencrypt/options-ssl-nginx.conf;
+
+  ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+}
+
+server {
+  server_name {{ domain }};
+
+  listen 80;
+  listen [::]:80;
+
+  return 301 https://$host$request_uri;
+}

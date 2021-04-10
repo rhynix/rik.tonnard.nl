@@ -1,0 +1,2 @@
+== render("_layout.html", title: article["title"]) do
+  == render("_article.html", article.merge(link_title: false))

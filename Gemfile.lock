@@ -1,0 +1,24 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    rake (13.0.3)
+    redcarpet (3.5.1)
+    slim (4.1.0)
+      temple (>= 0.7.6, < 0.9)
+      tilt (>= 2.0.6, < 2.1)
+    temple (0.8.2)
+    tilt (2.0.10)
+    webrick (1.7.0)
+
+PLATFORMS
+  x86_64-darwin-20
+
+DEPENDENCIES
+  rake (~> 13.0)
+  redcarpet (~> 3.5)
+  slim (~> 4.1)
+  tilt (~> 2.0)
+  webrick (~> 1.7)
+
+BUNDLED WITH
+   2.2.7

@@ -1,0 +1,89 @@
+/* https://coolors.co/2b2d42-8d99ae-edf2f4-ef233c-d90429 */
+
+@font-face {
+  font-family: Merriweather-Light;
+  src: url("merriweather.ttf");
+}
+
+:root {
+  --brand: #d90429;
+  --light-brand: #ef233c;
+  --grey: #8d99ae;
+  --dark-grey: #2b2d42;
+  --light-grey: #edf2f4;
+}
+
+html {
+  font: 16px Merriweather-Light;
+  line-height: 2rem;
+}
+
+body {
+  color: var(--dark-grey);
+  font-size: 1rem;
+  max-width: 60ch;
+  margin: 3rem auto;
+  padding: 0 2ch;
+}
+
+body > header {
+  padding-bottom: 2.25rem;
+  margin-bottom: 3.25rem;
+  border-bottom: 0.5rem solid var(--light-grey);
+  text-align: center;
+}
+
+.main-header {
+  font-size: 2rem;
+  margin: 0 0 1rem 0;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+nav a {
+  margin-right: 1ch;
+}
+
+p {
+  margin: 1rem 0;
+  font-size: 0.9rem;
+}
+
+h1 {
+  font-size: 1.7rem;
+  margin: 0;
+}
+
+h2 {
+  font-size: 1.1rem;
+  font-weight: normal;
+  margin-bottom: 1.5rem;
+}
+
+a {
+  color: var(--brand);
+  transition: color 300ms;
+}
+
+a:hover {
+  color: var(--light-brand);
+}
+
+article header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+article header time {
+  color: var(--grey);
+}
+
+article header time a {
+  color: var(--grey);
+  text-decoration: none;
+}

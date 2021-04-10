@@ -1,0 +1,13 @@
+article
+  header
+    h1
+      - if link_title
+        a href=permalink = title
+      - else
+        = title
+
+    time datetime=date.strftime("%Y-%m-%d")
+      a href=permalink
+        = date.strftime("%Y-%m-%d")
+
+  == markdown(content)

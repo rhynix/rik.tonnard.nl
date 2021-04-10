@@ -1,0 +1,3 @@
+== render("_layout.html", title: title) do
+  - articles.each do |article|
+    == render("_article.html", article.merge(link_title: true))
