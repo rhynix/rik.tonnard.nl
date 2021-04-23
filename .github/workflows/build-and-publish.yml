@@ -1,4 +1,4 @@
-name: Run Ansible playbook
+name: Build and publish
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  run-playbook:
+  build-and-publish:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -31,4 +31,4 @@ jobs:
 
         ansible-playbook --inventory infra/inventory.yml \
           infra/nginx.yml \
-          infra/publish.yml \
+          infra/publish.yml
