@@ -1,0 +1,32 @@
+name: Publish
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@473e4d8fe5dd94ee328fdfca9f8c9c7afc9dae5e
+      with:
+        ruby-version: "3.0"
+        bundler-cache: true
+    - name: Build
+      run: bundle exec rake
+    - name: Run playbook
+      env:
+        KNOWN_HOSTS: |
+          167.99.41.7 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEmGWkDUx2MV2eTMuPzBqtzRXz5TjoFDpyt7XvsFIHKfRYEycO1OABLj544NYKRyeUVT+QYkineLjC5+oaXTECE= 
+      run: |
+        mkdir ~/.ssh
+
+        echo "${{env.KNOWN_HOSTS}}" > ~/.ssh/known_hosts
+        echo "${{secrets.SSH_PRIVATE_KEY}}" > ~/.ssh/id_ed25519
+
+        chmod 600 ~/.ssh/id_ed25519
+
+        ansible-playbook infra/publish.yml --inventory infra/inventory.yml
