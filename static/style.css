@@ -80,12 +80,17 @@ body > header {
 
 nav {
   font-family: var(--font-family-serif);
+}
+
+nav ul {
+  list-style-type: none;
   display: flex;
   justify-content: center;
 }
 
-nav a {
-  margin-right: 1ch;
+nav li:not(:last-child):after {
+  content: '·';
+  margin: 1ch;
 }
 
 p {
