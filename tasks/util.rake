@@ -6,7 +6,7 @@ task "clean" do
   rm_rf "build"
 end
 
-task :serve => ["build/index.html"] do
+task :serve do
   root = File.expand_path('build')
   server = WEBrick::HTTPServer.new(
     :Port => 8000,
