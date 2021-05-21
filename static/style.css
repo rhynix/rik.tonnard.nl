@@ -1,8 +1,27 @@
 /* https://coolors.co/2b2d42-8d99ae-edf2f4-ef233c-d90429 */
 
 @font-face {
-  font-family: Merriweather-Light;
-  src: url("merriweather.ttf");
+  font-family: "Merriweather Sans";
+  font-style: normal;
+  src: url("MerriweatherSans.ttf");
+}
+
+@font-face {
+  font-family: "Merriweather Sans";
+  font-style: italic;
+  src: url("MerriweatherSans-Italic.ttf");
+}
+
+@font-face {
+  font-family: "Fraunces";
+  font-style: normal;
+  src: url("Fraunces.ttf");
+}
+
+@font-face {
+  font-family: "Fraunces";
+  font-style: italic;
+  src: url("Fraunces-Italic.ttf");
 }
 
 :root {
@@ -14,7 +33,7 @@
 }
 
 html {
-  font: 16px Merriweather-Light;
+  font: 16px var(--font-family-sans);
   line-height: 2rem;
 }
 
@@ -34,11 +53,12 @@ body > header {
 }
 
 .main-header {
-  font-size: 2rem;
+  font: 2rem var(--font-family-serif);
   margin: 0 0 1rem 0;
 }
 
 nav {
+  font-family: var(--font-family-serif);
   display: flex;
   justify-content: center;
 }
@@ -49,17 +69,24 @@ nav a {
 
 p {
   margin: 1rem 0;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-serif);
+  font-weight: 300;
 }
 
 h1 {
   font-size: 1.7rem;
+  line-height: 3rem;
   margin: 0;
 }
 
 h2 {
   font-size: 1.1rem;
-  font-weight: normal;
+  line-height: 3rem;
   margin-bottom: 1.5rem;
 }
 
@@ -81,6 +108,7 @@ article header {
 
 article header time {
   color: var(--grey);
+  font-family: var(--font-family-serif);
 }
 
 article header time a {

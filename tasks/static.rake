@@ -1,10 +1,15 @@
 directory "build"
 
-fonts = Rake::FileList["build/merriweather.ttf"]
+fonts = Rake::FileList[
+  "build/Fraunces-Italic.ttf",
+  "build/Fraunces.ttf",
+  "build/MerriweatherSans-Italic.ttf",
+  "build/MerriweatherSans.ttf",
+]
 
 task "build:static" => [
   "build/style.css",
-  fonts.pathmap("static/%f")
+  *fonts.pathmap("static/%f")
 ]
 
 fonts.each do |font|
