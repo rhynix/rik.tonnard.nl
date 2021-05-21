@@ -7,7 +7,7 @@ articles = Rake::FileList["articles/*.md"]
 
 task "build:articles" => [
   "build/index.html",
-  articles.pathmap("build/%n/index.html")
+  *articles.pathmap("build/%n/index.html")
 ]
 
 file "templates/_layout.html.slim" => ["build/style.css"]
@@ -23,7 +23,7 @@ file "templates/index.html.slim" => [
   "templates/_article.html.slim"
 ]
 
-file "build/index.html" => [articles, "templates/index.html.slim"] do |task|
+file "build/index.html" => [*articles, "templates/index.html.slim"] do |task|
   articles = articles.sort.reverse.map do |file|
     source = read(file)
     to_article(source).merge(permalink: file.pathmap("/%n"))
