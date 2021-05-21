@@ -29,7 +29,7 @@ file "build/index.html" => [*articles, "templates/index.html.slim"] do |task|
     to_article(source).merge(permalink: file.pathmap("/%n"))
   end
 
-  write task.name, render("index.html", title: "Index", articles: articles)
+  write task.name, render("index.html", articles: articles)
 end
 
 articles.each do |article|

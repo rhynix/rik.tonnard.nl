@@ -142,3 +142,62 @@ article header time a {
   color: var(--contrast-medium);
   text-decoration: none;
 }
+
+article header time a:hover {
+  color: var(--contrast-high);
+}
+
+ol.work-experiences {
+  list-style: none;
+  display: flex;
+  flex-direction: column-reverse;
+  counter-reset: counter;
+}
+
+ol.work-experiences > li {
+  counter-increment: counter;
+  margin-bottom: 1rem;
+  display: flex;
+}
+
+ol.work-experiences > li::before {
+  content: counter(counter, decimal-leading-zero) ".";
+  font: 2rem var(--font-family-serif);
+  width: 3ch;
+  flex: 0 0 auto;
+}
+
+ol.work-experiences h3 {
+  margin: 0;
+}
+
+ol.work-experiences .time-period {
+  font-family: var(--font-family-serif);
+  color: var(--contrast-medium);
+  margin: 0;
+}
+
+ol.work-experiences > li h4 {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+ol.work-experiences > li ul {
+  list-style: none;
+  column-width: 15ch;
+  font-weight: 300;
+  font-size: 0.9rem;
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(17ch, 1fr));
+  grid-column-gap: 1rem;
+}
+
+ol.work-experiences > li ul li {
+  border-bottom: 1px solid var(--contrast-low);
+}
+
+.time-period time:first-child::after {
+  content: "—";
+  margin: 0 1ch;
+}

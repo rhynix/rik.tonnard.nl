@@ -20,6 +20,10 @@ def read(filename)
   File.read(filename)
 end
 
+def read_yaml(filename)
+  YAML.load(read(filename))
+end
+
 def write(filename, content)
   $stderr.puts("write #{filename}")
   File.write(filename, content)

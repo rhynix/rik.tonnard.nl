@@ -1,0 +1,29 @@
+== render("_layout.html", title: "About") do
+  h2 Work experiences
+  ol.work-experiences
+    - resume["work_experiences"].each do |experience|
+      li
+        div
+          h3= experience["employer"]
+          p.time-period
+            == render("_time", time: experience["from"], format: "%b, %Y")
+
+            - if experience["till"]
+              == render("_time", time: experience["till"], format: "%b, %Y")
+            - else
+              | Present
+
+          - if description = experience["description"]
+            == markdown(description)
+
+          - if technologies = experience["technologies"]
+            h4 Technologies
+            ul
+              - technologies.each do |technology|
+                li = technology
+
+          - if methodologies = experience["methodologies"]
+            h4 Methodologies
+            ul
+              - methodologies.each do |methodology|
+                li = methodology

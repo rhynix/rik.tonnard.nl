@@ -1,0 +1,23 @@
+work_experiences:
+  - employer: YoungCapital
+    from: 2015-01-01
+    till: 2015-11-30
+  - employer: Eet.nu
+    from: 2015-12-01
+    till: 2017-11-30
+  - employer: Kabisa
+    from: 2017-12-01
+    description: |
+      My job at Kabisa fits me like a glove. I greatly enjoy working among
+      like-minded people who care about the services they offer and products
+      they provide.
+
+      At Kabisa I have spent most of my time working as a consultant. Being a
+      consultant allows me to have multitudes of experiences. This means I can
+      do what I like most: learning new things.
+    technologies:
+      - Ruby (on Rails)
+      - Python
+      - Javascript
+      - React & Redux
+      - Terraform
