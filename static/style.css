@@ -37,8 +37,8 @@ ol, ul {
   --contrast-medium: #8d99ae;
   --contrast-low: #edf2f4;
 
-  --font-family-sans: "Merriweather Sans";
-  --font-family-serif: "Fraunces";
+  --font-family-sans: "Merriweather Sans", sans-serif;
+  --font-family-serif: "Fraunces", serif;
 }
 
 @media (prefers-color-scheme: dark) {
