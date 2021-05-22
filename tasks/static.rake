@@ -9,7 +9,7 @@ fonts = Rake::FileList[
 
 task "site:static" => [
   "build/style.css",
-  *fonts.pathmap("static/%f")
+  *fonts
 ]
 
 fonts.each do |font|
