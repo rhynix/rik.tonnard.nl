@@ -7,17 +7,17 @@ fonts = Rake::FileList[
   "build/MerriweatherSans.ttf",
 ]
 
-task "build:static" => [
+task "site:static" => [
   "build/style.css",
   *fonts.pathmap("static/%f")
 ]
 
 fonts.each do |font|
-  file font => [font.pathmap("static/%f"), "build"] do |task|
+  file font => [font.pathmap("static/%f"), :build] do |task|
     cp task.source, task.name
   end
 end
 
-file "build/style.css" => ["static/style.css", "build", *fonts] do |task|
+file "build/style.css" => ["static/style.css", :build] do |task|
   cp task.source, task.name
 end

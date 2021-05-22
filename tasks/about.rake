@@ -1,10 +1,11 @@
-task "build:about" => ["build/about/index.html"]
+task "site:about" => ["build/about/index.html"]
 
-resume_path = "data/resume.yaml"
-
-file "build/about/index.html" => [resume_path, "templates/about.html.slim"] do |task|
-  mkdir_p task.name.pathmap("%d")
-  resume = read_yaml(resume_path)
+file "build/about/index.html" => [
+  "data/resume.yaml",
+  "templates/about.html.slim",
+  :build
+] do |task|
+  resume = read_yaml(task.source)
 
   write task.name, render("about.html", resume: resume) 
 end

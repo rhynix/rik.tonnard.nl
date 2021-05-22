@@ -1,7 +1,5 @@
 require "webrick"
 
-task "build:all" => ["build:about", "build:articles", "build:static"]
-
 task "clean" do
   rm_rf "build"
 end
