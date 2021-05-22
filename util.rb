@@ -5,7 +5,6 @@ module Util
 
   def write(name, string)
     rake_output_message "write #{name}"
-    mkdir_p name.pathmap("%d")
 
     when_writing do
       File.write(name, string)

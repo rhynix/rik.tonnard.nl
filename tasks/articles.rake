@@ -27,6 +27,7 @@ file "build/index.html" => [
     to_article(source).merge(permalink: file.pathmap("/%n"))
   end
 
+  mkdir_p task.name.pathmap("%d")
   write task.name, render("index.html", articles: articles)
 end
 
@@ -39,6 +40,7 @@ articles.each do |article|
     source = read(task.source)
     article = to_article(source).merge(permalink: task.name.pathmap("/%-1d"))
 
+    mkdir_p task.name.pathmap("%d")
     write task.name, render("article.html", article: article)
   end
 end

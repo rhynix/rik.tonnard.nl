@@ -7,5 +7,6 @@ file "build/about/index.html" => [
 ] do |task|
   resume = read_yaml(task.source)
 
+  mkdir_p task.name.pathmap("%d")
   write task.name, render("about.html", resume: resume) 
 end
